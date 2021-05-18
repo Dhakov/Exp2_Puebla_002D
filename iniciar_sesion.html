@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Nosotros</title> 
+        <title>Biblioteca de software</title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <link href="css/estilos.css" type="text/css" rel="stylesheet"> 
         <link rel="icon" href="img/PageLogo/favicon.png">
+        <script src="js/scripts.js"></script>
       
     </head>
     <body>
@@ -55,68 +56,47 @@
         </div>
       </nav>
       <br><br>
-
+    
+      <!--CONTENIDO-->
       <div class="container rounded container-xl boxed" style="background-color:rgb(15, 4, 0)">
-        <div class="titulo boxed">
-          <h1 style="font-size: 30px;">¿Quienes somos?</h1>
+        <div class="titulo boxed-sm"> 
+          <h1 style="font-size: 35px; margin: 20px; text-align: center;">Iniciar Sesión</h1>
+        </div>
+
+        <br> <br> <br>
+
+        <form action="index.html" method="POST" name="datos" style="text-align: center; padding: 5%; padding-right: 5%; color: aliceblue;">
+          
+
+          <label for="lab_usuario" style="padding: 1%;"> Usuario: </label> <br>
+            <input type="text" name="us" id="user" placeholder="Ingrese su Usuario" value="" required autofocus onchange="textMinus(this)"><br><br>
+          
+          <label for="lab_correo" style="padding: 1%;"> Email: </label> <br>
+            <input type="email" name="em" id="email" placeholder="Ingrese su correo" value="" required autofocus><br><br>
+
+          <label for="lab_password" style="padding: 1%;"> Contraseña: </label> <br>
+            <input type="password" name="pass" id="pass_user" placeholder="Ingrese su contraseña" value="" required> <br><br>
+
+          <label for="lab_reco_usuario" style="padding: 1%;"> Recordar usuario </label>
+            <input type="checkbox" name="che_us" id="check_user" value=""> <br>
+
+          <label for="lab_correo" style="padding: 1%;"> Recordar correo </label>
+            <input type="checkbox" name="che_cor" id="check_correo" value=""> <br>
+
+          <label for="lab_sesion" style="padding: 1%;"> Mantener sesión iniciada </label>
+            <input type="checkbox" name="che_ses" id="check_sesion" value="" onmousedown="checkSesion(this)"> <br>
+
           <br>
-          <img src="img/icon_extra/separation.png" style="width: 900px; height: 10px; max-width: 100%;">
-        </div>
 
-        <div>
-          <p class="boxed-sm" style="text-align: center; color: aliceblue; font-family: 'Courier New'; margin: 20px;">
-            <br>
-            DOWNWARE es un sitio dedicado a la distribución no tan legal de Software pirata y gratuito.
-            <br>
-            <img src="img/PageLogo/Main page icon.png" style="height: 512px; width: 512px; max-width: 100%; max-height: 100%;">
-            <br><br>
-            REVISA NUESTRO TRAILER
-            <br>
-            <iframe width="800" height="450" style="max-width: 100%; max-height: 100%;" 
-            src="https://www.youtube.com/embed/lrplY4Ns144" 
-            title="YouTube video player" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-            </iframe> 
-            <br>
-            <br>
-            En nuestro sitio podrás encontrar los últimos programas y videojuegos del mercado.
-            <br>
-            Podras obtener todo de forma gratuita y segura.
-            <br>
-            Nos aseguramos de verificar el contenido de nuestras publicaciones, escaneando en busca de virus cada uno de nuestros archivos.
-            <br><br>
-            <img src="img/icon_extra/virus_free_icon.png" style="width: 280px; height: 256px;">
-            <br><br>
-          </p>
-          <div class="container rounded container-xl boxed" style="background-color:rgb(15, 4, 0)">
-          <br><br><br>
-            <p style="text-align: center; font-size: 30px; color: aliceblue; font-family: 'Courier New'; letter-spacing: 0px;">
-              Todo nuestro software está alojado en tres servidores, descarga de donde quieras
-            </p>
-            <div class="row">
-              <div class="col-md">        
-                <div class="card bg-dark">
-                  <img class="card-img-top" src="img/icon_extra/mediafire_download_icon.png" style="max-width: 100%; max-height: 100%;">
-                </div>          
-              </div>
-              <div class="col-md">        
-                <div class="card bg-dark">
-                    <img class="card-img-top" src="img/icon_extra/utorrent_download_icon.png" style="max-width: 100%; max-height: 100%;">
-                </div>          
-              </div>
-              <div class="col-md">        
-                <div class="card bg-dark">
-                    <img class="card-img-top" src="img/icon_extra/mega_download_icon.png" style="max-width: 100%; max-height: 100%;">
-                </div>          
-              </div>
-            </div>
-          <br><br><br>
-          </div>
-        </div>
+          <input type="submit" value="Crear Cuenta" onclick="return validacion()" onmouseover="style.background = 'purple'" onmouseout="style.background= 'white'"
+            style="width: 50%;  height: 40px;">
 
+          <br><br><br>
+
+        </form>
       </div>
-
-      <br><br>
+      <!--CONTENIDO-->
+    
 
       <footer>
 
@@ -169,7 +149,7 @@
     
       </footer>
     
-
+      
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
