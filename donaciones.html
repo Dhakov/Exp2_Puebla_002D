@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Biblioteca de software</title> 
+        <title>Donaciones</title> 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
         <link href="css/estilos.css" type="text/css" rel="stylesheet"> 
         <link rel="icon" href="img/PageLogo/favicon.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       
+        <script type="text/javascript">
+          $(document).ready(function()
+          {
+              $("#solicitar").click(function(){
+  
+                  $.get("https://mindicador.cl/api",
+                      function(data){
+                          
+                          $.each(data,function(i,item){
+                              $("#monedas").append("<tr><td>"+item.codigo+"</td><td>"+item.nombre +
+                              "</td><td> $"+ item.valor + "</td></tr>");
+                            
+                          });
+  
+                      });
+              });
+          })
+        </script>
+
     </head>
     <body>
       <nav class="navbar sticky-top navbar-expand-lg navbar-dark rounded border-bottom border-primary">
@@ -59,8 +79,34 @@
       <!--CONTENIDO-->
       <div class="container rounded container-xl boxed" style="background-color:rgb(15, 4, 0)">
         <div class="titulo boxed-sm"> 
-          <h1 style="font-size: 45px; text-align: left; margin: 20px; text-align: center;"><!--Título del programa--></h1>
+          <h1 style="font-size: 45px; text-align: left; margin: 20px; text-align: center;">¿Quieres Apoyar la Página?</h1>
         </div>
+
+        <div style="text-align: center;">
+        <h1 class="titulo">Valor de las Monedas aceptadas </h1>
+          
+        <button type="button" class="btn btn-primary" style="background-color: blueviolet; border-color: pink;" id="solicitar">Solicitar Tipos de Monedas</button>
+
+        <br><br>
+        <div class="container rounded container-xl boxed" style="background-color:rgb(15, 4, 0)">
+        <table class="table" id="monedas" style="color: rgb(255, 226, 238); font-size: 22px;">
+            <thead>
+              
+                <tr>
+                    <th scope="col" style="font-size: 32px;">Código</th>
+                    <th scope="col" style="font-size: 32px;">Nombre</th>
+                    <th scope="col" style="font-size: 32px;">Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+    
+        </table>
+      </div>
+
+      </div>
+
       </div>
       <!--CONTENIDO-->
 
@@ -116,8 +162,6 @@
       </footer>
     
       
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
   </body>
