@@ -14,12 +14,13 @@
           {
               $("#solicitar").click(function(){
   
-                  $.get("https://mindicador.cl/api",
+                  $.get("https://mindicador.cl/api/dolar",
                       function(data){
                           
-                          $.each(data,function(i,item){
-                              $("#monedas").append("<tr><td>"+item.codigo+"</td><td>"+item.nombre +
-                              "</td><td> $"+ item.valor + "</td></tr>");
+                          $.each(data.serie,function(i,moneda){
+                              $("#dolar").append("<tr><td>"+moneda.fecha+
+                                                   "</td><td>"+moneda.valor +
+                                                   "</td></tr>");
                             
                           });
   
@@ -87,54 +88,36 @@
           <br>
           <br>
 
-        <h1 class="titulo">Puedes donarnos mediante las siguientes plataformas </h1>
+        <h1 class="titulo">Puedes donarnos mediante <br> PayPal: </h1>
         <div style="margin: 40px; letter-spacing: 2px; color: aliceblue; font-family: arial; font-size: 18px;">
 
           <div class="row">
           
             <div class="col-md">      
 
-              <div class="card bg-dark">
+              <div class="card" style="background-color: transparent;">
                 <a href="#">
-                <img class="card-img-top" src="img/donaciones/Paypal.png" style="max-width: 100%; max-height: 100%;">
+                <img class="card-img" src="img/donaciones/Paypal.png" style="max-width: 60%; max-height: 60%;">
                 </a>
               </div>
 
             </div>
-            <div class="col-md">      
-
-              <div class="card bg-dark">
-                <a href="#">
-                  <img class="card-img-top" src="img/donaciones/servipag.jpg" style="max-width: 100%; max-height: 100%;">
-                </a>
-              </div>        
-
-            </div>
-            <div class="col-md">        
-
-              <div class="card bg-dark">
-                <a href="#">
-                  <img class="card-img-top" src="img/donaciones/webpay.png" style="max-width: 100%; max-height: 100%;">
-                </a>
-              </div>    
-
-            </div>
-
           </div>
         </div>
 
-        <h3 class="titulo">Valor de las Monedas convertidas</h3>
+        <h3 class="titulo">Valor histórico del Dolar</h3>
           
-        <button type="button" class="btn btn-primary" style="background-color: blueviolet; border-color: pink;" id="solicitar">Mostrar Monedas</button>
+        <p style="color: aliceblue; letter-spacing: 2px; font-family: 'Courier New';">Calcula tu donación viendo el valor del dolar en nuestra nación</p>
+        
+        <button type="button" class="btn btn-primary" style="background-color: blueviolet; border-color: pink;" id="solicitar">Mostrar dolar</button>
 
         <br><br>
         <div class="container rounded container-xl boxed" style="background-color:rgb(15, 4, 0)">
-        <table class="table" id="monedas" style="color: rgb(255, 226, 238); font-size: 2vw;">
+        <table class="table" id="dolar" style="color: rgb(255, 226, 238); font-size: 2vw;">
             <thead>
               
                 <tr>
-                    <th scope="col" style="font-size: 3vw;">Código</th>
-                    <th scope="col" style="font-size: 3vw;">Nombre</th>
+                    <th scope="col" style="font-size: 3vw;">Fecha</th>
                     <th scope="col" style="font-size: 3vw;">Valor</th>
                 </tr>
             </thead>
